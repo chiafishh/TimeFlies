@@ -78,14 +78,7 @@ class AViewController: UIViewController {
         delayYear = timeImgYear + 1//下一張照片        
         //ChooseImg2是疊圖的上面那張圖，是半透明的(直接設定的)，要顯示下一張照片
         ChooseImg2.image = UIImage(named: "\(delayYear).png")
-        ChooseImg2.isHidden = false      
-
-        if timeImgYear < 108{
-            timeImgYear += 1
-        }
-        else{
-            timeImgYear = 85
-        }
+        ChooseImg2.isHidden = false
         
         //延遲功能，延遲0.5秒(500milliseconds)，進來timeFunc後，會先顯示去年的照片加上今年的照片的疊圖，0.5秒後，再只顯示這年的圖
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
@@ -95,6 +88,13 @@ class AViewController: UIViewController {
             self.YearSlider.value = Float(self.timeImgYear)
             self.ChooseImg.image = UIImage(named: "\(self.timeImgYear).png")
         })
+        
+        if timeImgYear < 108{
+            timeImgYear += 1
+        }
+        else{
+            timeImgYear = 85
+        }
     }
     /*
     // MARK: - Navigation
