@@ -87,9 +87,9 @@ class AViewController: UIViewController {
             timeImgYear = 85
         }
         
-        //延遲功能，延遲0.5秒(500milliseconds)，進來timeFunc後，會先顯示原本的照片加上下一年的照片的疊圖，0.5秒後，再只顯示這年的照片
+        //延遲功能，延遲0.5秒(500milliseconds)，進來timeFunc後，會先顯示原本的照片加上下一年的照片的疊圖，0.5秒後，再只顯示下一年的照片
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
-            //二、只顯示這年的照片
+            //二、只顯示下一年的照片
             self.ChooseImg2.isHidden = true//疊圖的上面那張ChooseImg2隱藏            
             self.YearLabel.text = "\(self.timeImgYear)"
             self.YearSlider.value = Float(self.timeImgYear)
