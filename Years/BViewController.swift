@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class BViewController: UIViewController {
     
     var timer : Timer?
@@ -43,14 +42,17 @@ class BViewController: UIViewController {
     
     @IBAction func ClickAutoButton(_ sender: Any) {
         if clickAuto == 0{
+            //點選自動就能自動播放照片
             clickAuto = 1
-            timeImgYear = Int(YearSlider.value)
-            autoButton.setTitle("停止",for: .normal)
+            timeImgYear = Int(YearSlider.value)//從當下顯示的年分開始撥放
+            autoButton.setTitle("停止",for: .normal)//點選自動後，按鈕文字會變為「停止」
+            //用Timer，每1.5秒會自動運作 function timeFunc 來自動播放 
             self.timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(timeFunc), userInfo: nil, repeats: true)
         }
         else{
+            //點選停止就會停止自動播放照片
             clickAuto = 0
-            autoButton.setTitle("自動",for: .normal)
+            autoButton.setTitle("自動",for: .normal)//點選停止後，按鈕文字會變為「自動」
             if timer != nil {
                 timer?.invalidate()
             }
